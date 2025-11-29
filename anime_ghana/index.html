@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Anime Ghana</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Background image provided via CSS: place `images/bg-anime.jpg` in the images folder -->
+  <header class="site-header">
+    <div class="container">
+      <a class="logo" href="index.html">
+        <img src="assets/logo.svg" alt="Anime Ghana logo">
+        <span class="site-title">Anime Ghana</span>
+      </a>
+      <div class="header-utilities">
+        <a id="following-link" class="following-link" href="community.html?view=following" style="display:none">Following (<span id="following-count">0</span>)</a>
+        <a id="notif-link" class="following-link" href="moderation.html" style="display:none">🔔 <span id="notif-count">0</span></a>
+      </div>
+      <nav>
+        <ul class="nav">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="community.html">Community</a></li>
+          <li><a href="news.html">News</a></li>
+          <li><a href="manga.html">Manga</a></li>
+          <li><a href="about.html">About</a></li>
+        </ul>
+      </nav>
+      <div class="header-actions">
+        <div class="autocomplete">
+          <form class="search-form" id="header-search" action="news.html" method="get" role="search" autocomplete="off">
+            <input id="search-input" type="search" name="search" placeholder="Search anime or news..." aria-label="Search anime or news" aria-autocomplete="list" aria-controls="autocomplete-list">
+            <button aria-label="Search">🔍</button>
+          </form>
+          <div id="autocomplete-list" class="autocomplete-list" role="listbox" hidden></div>
+        </div>
+        <div class="auth-area">
+          <button class="auth-btn" id="sign-in-btn">Sign in</button>
+        </div>
+      </div>
+    </div>
+  </header>
+  <main class="container">
+    <section class="hero">
+      <div class="hero-inner">
+        <h2>Welcome to Anime Ghana</h2>
+        <p>Your hub for Ghana's anime community, latest news and manga recommendations.</p>
+        <a class="btn" href="community.html">Join the Community</a>
+      </div>
+    </section>
+    <!-- Anime grid: replace placeholder images in `images/` with your own art -->
+    <section class="anime-grid" aria-label="Featured anime">
+      <a class="anime-card" href="news.html?anime=one-piece">
+        <img src="one pièce.jpg" alt="One Piece poster" loading="lazy">
+        <div class="card-body">
+          <h3>One Piece</h3>
+          <p>Epic pirate adventure following Monkey D. Luffy and the Straw Hat crew as they chase the legendary treasure.</p>
+        </div>
+      </a>
+      <a class="anime-card" href="news.html?anime=attack-on-titan">
+        <img src="poster de attack On Titan.jpg" alt="Attack on Titan poster" loading="lazy">
+        <div class="card-body">
+          <h3>Attack On Titan</h3>
+          <p>Humanity fights for survival against gigantic Titans — dark, intense storytelling and shocking twists.</p>
+        </div>
+      </a>
+      <a class="anime-card" href="news.html?anime=naruto">
+        <img src="download.jpg" alt="Naruto poster" loading="lazy">
+        <div class="card-body">
+          <h3>Naruto</h3>
+          <p>The coming-of-age story of Naruto Uzumaki — themes of friendship, rivalry, and perseverance.</p>
+        </div>
+      </a>
+      <a class="anime-card" href="news.html?anime=hxh">
+        <img src="My Anime For Life.jpg" alt="Hunter x Hunter poster" loading="lazy">
+        <div class="card-body">
+          <h3>Hunter x Hunter</h3>
+          <p>Adventure and strategy with complex characters — celebrated for its storytelling and Nen system.</p>
+        </div>
+      </a>
+      <a class="anime-card" href="news.html?anime=bleach">
+        <img src="bleach.jpg" alt="Bleach poster" loading="lazy">
+        <div class="card-body">
+          <h3>Bleach</h3>
+          <p>Ichigo Kurosaki becomes a Soul Reaper, battling hollows and exploring the spirit world.</p>
+        </div>
+      </a>
+      <a class="anime-card" href="news.html?anime=dragon-ball">
+        <img src="Dragonball Z.jpg" alt="Dragon Ball poster" loading="lazy">
+        <div class="card-body">
+          <h3>Dragon Ball</h3>
+          <p>Classic shonen series featuring Goku's rise through epic battles and legendary transformations.</p>
+        </div>
+      </a>
+      <a class="anime-card" href="news.html?anime=cowboy-bebop">
+        <img src="Cowboy Bebop .jpg" alt="Cowboy Bebop poster" loading="lazy">
+        <div class="card-body">
+          <h3>Cowboy Bebop</h3>
+          <p>Stylish space western following a crew of bounty hunters — known for tone, music, and worldbuilding.</p>
+        </div>
+      </a>
+      <a class="anime-card" href="news.html?anime=gachiakuta">
+        <img src="gachaiakuta.jpg" alt="Gachiakuta poster" loading="lazy">
+        <div class="card-body">
+          <h3>Gachiakuta</h3>
+          <p>User-provided artwork for Gachiakuta; learn more via the news link for community highlights.</p>
+        </div>
+      </a>
+      <!-- New cards: Jujutsu Kaisen and Solo Leveling -->
+      <a class="anime-card" href="news.html?anime=jujutsu-kaisen">
+        <img src="jujutsu kaisen.jpg" alt="Jujutsu Kaisen poster" loading="lazy">
+        <div class="card-body">
+          <h3>Jujutsu Kaisen</h3>
+          <p>Recent hit known for breathtaking fight choreography and memorable ensemble cast.</p>
+        </div>
+      </a>
+      <a class="anime-card" href="news.html?anime=solo-leveling">
+        <img src="solo leveling.jpg" alt="Solo Leveling poster" loading="lazy">
+        <div class="card-body">
+          <h3>Solo Leveling</h3>
+          <p>Popular manhwa adaptation known for solo-protagonist progression and high-impact action sequences.</p>
+        </div>
+      </a>
+    </section>
+    <section class="highlights">
+      <article>
+        <h3>Latest News</h3>
+        <p><a href="news.html">Read the latest updates</a></p>
+      </article>
+      <article>
+        <h3>Featured Manga</h3>
+        <p><a href="manga.html">Explore manga picks</a></p>
+      </article>
+    </section>
+  </main>
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; 2025 Anime Ghana</p>
+    </div>
+  </footer>
+  <script>
+    // Reveal anime cards on scroll using IntersectionObserver
+    (function(){
+      const cards = document.querySelectorAll('.anime-card');
+      if(!('IntersectionObserver' in window)){
+        // fallback: show all
+        cards.forEach(c=>c.classList.add('visible'));
+        return;
+      }
+      const obs = new IntersectionObserver((entries, observer)=>{
+        entries.forEach(entry=>{
+          if(entry.isIntersecting){
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      },{threshold:0.15});
+      cards.forEach(c=>obs.observe(c));
+    })();
+  </script>
+  <script>
+    // Replace placeholder card images and descriptions with Jikan-provided originals
+    (function(){
+      if(!('fetch' in window)) return;
+      const cards = document.querySelectorAll('.anime-grid .anime-card');
+      // For each card, read the anime slug from its href (news.html?anime=slug)
+          cards.forEach(async card=>{
+        try{
+          const href = card.getAttribute('href') || '';
+          const m = href.match(/[?&]anime=([^&]+)/);
+          const slug = m ? decodeURIComponent(m[1]) : null;
+          if(!slug) return;
+          // no forced image: proceed to query Jikan for this card's poster and synopsis
+          // If the img currently points to a local file (not an external URL), keep it — user-provided images should not be overwritten
+          const existingImg = card.querySelector('img');
+          const currentSrcAttr = existingImg && existingImg.getAttribute('src');
+          if(currentSrcAttr && !/^https?:\/\//i.test(currentSrcAttr) && !currentSrcAttr.startsWith('data:')){
+            // assume this is a local file (relative path) — skip Jikan replacement
+            return;
+          }
+
+          // Map slugs to one or more search candidates to improve matching
+          const map = {
+            'one-piece':['One Piece'],
+            'attack-on-titan':['Attack on Titan'],
+            'naruto':['Naruto'],
+            'hxh':['Hunter x Hunter','Hunter × Hunter'],
+            'bleach':['Bleach'],
+            'dragon-ball':['Dragon Ball Super','Dragon Ball Z','Dragon Ball'],
+            'cowboy-bebop':['Cowboy Bebop'],
+            'gachiakuta':['Gatchaman','Gatcha','Gachiakuta']
+          };
+          const candidates = map[slug] || [slug.replace(/[-_]/g,' ')];
+          let item = null;
+          let usedQuery = '';
+          for(const q of candidates){
+            try{
+              const res = await fetch('https://api.jikan.moe/v4/anime?q='+encodeURIComponent(q)+'&limit=1');
+              if(!res.ok) continue;
+              const js = await res.json();
+              if(js.data && js.data.length>0){ item = js.data[0]; usedQuery = q; break; }
+            }catch(err){
+              // try next candidate on errors
+              continue;
+            }
+          }
+          if(!item) return;
+          // pick best image url
+          const img = (item.images && (item.images.jpg?.image_url || item.images.webp?.image_url)) || '';
+          const synopsis = item.synopsis || '';
+          const title = item.title || (usedQuery || slug);
+          // update image
+          const imgEl = card.querySelector('img');
+          if(imgEl && img) imgEl.src = img;
+          // update title (if different)
+          const h3 = card.querySelector('.card-body h3');
+          if(h3) h3.textContent = title;
+          // update description: use synopsis (trim to sensible length)
+          const p = card.querySelector('.card-body p');
+          if(p){
+            const trimmed = synopsis.split('\n').join(' ').trim();
+            p.textContent = trimmed.length? (trimmed.length>160? trimmed.slice(0,157)+'...':trimmed) : p.textContent;
+          }
+        }catch(e){
+          // ignore per-card failures
+          console.error('card update failed', e);
+        }
+      });
+    })();
+  </script>
+  <!-- Auth modal and header behavior -->
+  <div class="modal-backdrop" id="auth-modal">
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="auth-title">
+      <div style="display:flex;justify-content:space-between;align-items:center">
+        <h3 id="auth-title">Sign in to Anime Ghana</h3>
+        <button class="modal-close" id="modal-close">✕</button>
+      </div>
+      <p>Choose a provider to continue (this demo simulates sign-in locally).</p>
+      <div class="social-list">
+        <button class="social-btn google" data-provider="google" aria-label="Continue with Google">
+          <svg class="icon" width="32" height="32" viewBox="0 0 32 32" aria-hidden="true">
+            <rect width="32" height="32" rx="6" fill="#4285F4"></rect>
+            <text x="16" y="21" font-family="Segoe UI, Arial, sans-serif" font-size="16" text-anchor="middle" fill="#fff">G</text>
+          </svg>
+          Continue with Google
+        </button>
+        <button class="social-btn tiktok" data-provider="tiktok" aria-label="Continue with TikTok">
+          <svg class="icon" width="32" height="32" viewBox="0 0 32 32" aria-hidden="true">
+            <rect width="32" height="32" rx="6" fill="#111"></rect>
+            <text x="16" y="21" font-family="Segoe UI, Arial, sans-serif" font-size="14" text-anchor="middle" fill="#fff">t</text>
+          </svg>
+          Continue with TikTok
+        </button>
+        <button class="social-btn discord" data-provider="discord" aria-label="Continue with Discord">
+          <svg class="icon" width="32" height="32" viewBox="0 0 24 24" aria-hidden="true" role="img">
+            <rect width="24" height="24" rx="5" fill="#5865F2"></rect>
+            <path fill="#FFFFFF" d="M7.2 8.6c0 0-0.6 0.8-0.7 1.6 0 0 1.1-0.2 1.6-0.2 0 0 0.1-1 0.1-1.3 0 0-0.9-0.1-1-0.1zM16.8 8.6c0 0 0.6 0.8 0.7 1.6 0 0-1.1-0.2-1.6-0.2 0 0-0.1-1-0.1-1.3 0 0 0.9-0.1 1-0.1zM12 18.5c-2.5 0-4.6-1.1-6.1-2.9 0 0 0.7 0.3 1.3 0.5 0 0 0.9 0.8 5 0.8s5-0.8 5-0.8c0.6-0.2 1.3-0.5 1.3-0.5-1.5 1.8-3.6 2.9-6.1 2.9zM8.6 11.2c0 0.9 0.8 1.6 1.8 1.6s1.8-0.7 1.8-1.6-0.8-1.6-1.8-1.6-1.8 0.7-1.8 1.6zM13.8 11.2c0 0.9 0.8 1.6 1.8 1.6s1.8-0.7 1.8-1.6-0.8-1.6-1.8-1.6-1.8 0.7-1.8 1.6z"/>
+          </svg>
+          Continue with Discord
+        </button>
+        <button class="social-btn instagram" data-provider="instagram" aria-label="Continue with Instagram">
+          <svg class="icon" width="32" height="32" viewBox="0 0 32 32" aria-hidden="true">
+            <defs>
+              <linearGradient id="igGrad" x1="0" x2="1" y1="0" y2="1">
+                <stop offset="0%" stop-color="#f09433" />
+                <stop offset="50%" stop-color="#e6683c" />
+                <stop offset="100%" stop-color="#cc2366" />
+              </linearGradient>
+            </defs>
+            <rect width="32" height="32" rx="6" fill="url(#igGrad)"></rect>
+            <text x="16" y="21" font-family="Segoe UI, Arial, sans-serif" font-size="14" text-anchor="middle" fill="#fff">I</text>
+          </svg>
+          Continue with Instagram
+        </button>
+      </div>
+    </div>
+  </div>
+  <script>
+    // Simple client-side simulated auth (purely UI/localStorage). Replace with real OAuth in production.
+    (function(){
+      const signInBtn = document.getElementById('sign-in-btn');
+      const modal = document.getElementById('auth-modal');
+      const modalClose = document.getElementById('modal-close');
+      const socialBtns = document.querySelectorAll('.social-btn');
+
+      function updateHeader(){
+        const user = JSON.parse(localStorage.getItem('agh_user')||'null');
+        const authArea = document.querySelector('.auth-area');
+        authArea.innerHTML = '';
+        if(user){
+          const pill = document.createElement('div');
+          pill.className = 'user-pill';
+          pill.innerHTML = `<span class="user-avatar"></span><strong>${user.name}</strong> <button class="auth-btn" id="sign-out">Sign out</button>`;
+          authArea.appendChild(pill);
+          document.getElementById('sign-out').addEventListener('click', ()=>{ localStorage.removeItem('agh_user'); updateHeader(); // hide following link when signed out
+            document.querySelectorAll('#following-link').forEach(el=>el.style.display='none'); document.querySelectorAll('#following-count').forEach(el=>el.textContent = 0);
+          });
+          // show following link and count for this user
+          try{
+            const id = user.provider+':'+(user.name||user.provider);
+            const follows = JSON.parse(localStorage.getItem('agh_follows_'+id)||'[]');
+            document.querySelectorAll('#following-count').forEach(el=>el.textContent = follows.length);
+            document.querySelectorAll('#following-link').forEach(el=>el.style.display='inline-flex');
+          }catch(e){}
+        } else {
+          const btn = document.createElement('button');
+          btn.className = 'auth-btn';
+          btn.id = 'sign-in-btn-2';
+          btn.textContent = 'Sign in';
+          authArea.appendChild(btn);
+          btn.addEventListener('click', ()=> modal.style.display = 'flex');
+        }
+      }
+
+      signInBtn && signInBtn.addEventListener('click', ()=> modal.style.display = 'flex');
+      modalClose && modalClose.addEventListener('click', ()=> modal.style.display = 'none');
+      modal.addEventListener('click', (e)=>{ if(e.target === modal) modal.style.display = 'none'; });
+
+      socialBtns.forEach(btn=>{
+        btn.addEventListener('click', ()=>{
+          // Simulate a provider login. In a real app you'd start the OAuth flow.
+          const provider = btn.dataset.provider;
+          const fakeUser = {name: provider.charAt(0).toUpperCase()+provider.slice(1)+ ' User', provider};
+          localStorage.setItem('agh_user', JSON.stringify(fakeUser));
+          modal.style.display = 'none';
+          updateHeader();
+          // also ensure following link is visible and shows this user's count
+          try{
+            const id = fakeUser.provider+':'+(fakeUser.name||fakeUser.provider);
+            const follows = JSON.parse(localStorage.getItem('agh_follows_'+id)||'[]');
+            document.querySelectorAll('#following-count').forEach(el=>el.textContent = follows.length);
+            document.querySelectorAll('#following-link').forEach(el=>el.style.display='inline-flex');
+          }catch(e){}
+        });
+      });
+
+      // initialise
+      updateHeader();
+    })();
+  </script>
+  <script>
+    // Header autocomplete that queries Jikan (MyAnimeList) and shows suggestions.
+    (function(){
+      const input = document.getElementById('search-input');
+      const list = document.getElementById('autocomplete-list');
+      let controller = null;
+      let debounceTimer = null;
+      let items = [];
+      let selected = -1;
+
+      function clearList(){ list.innerHTML=''; list.hidden = true; items = []; selected = -1; }
+
+      function renderResults(results){
+        clearList();
+        if(!results || results.length===0) return;
+        results.forEach((it, idx)=>{
+          const el = document.createElement('div');
+          el.className = 'autocomplete-item';
+          el.setAttribute('role','option');
+          el.dataset.title = it.title;
+          el.dataset.url = it.url;
+          el.dataset.mal = it.mal_id;
+          const imgUrl = (it.images && (it.images.jpg?.image_url || it.images.webp?.image_url)) || '';
+          el.innerHTML = `
+            ${imgUrl? `<img class="autocomplete-thumb" src="${imgUrl}" alt="${it.title} poster">` : `<div class="autocomplete-thumb"></div>`}
+            <div>
+              <div class="autocomplete-title">${it.title}</div>
+              <div class="autocomplete-sub">${(it.synopsis||'').slice(0,120)}${(it.synopsis && it.synopsis.length>120)?'...':''}</div>
+            </div>
+          `;
+          el.addEventListener('click', ()=>{ location.href = 'news.html?search='+encodeURIComponent(it.title); });
+          list.appendChild(el);
+          items.push(el);
+        });
+        list.hidden = false;
+      }
+
+      function selectItem(index){
+        if(selected>=0 && items[selected]) items[selected].setAttribute('aria-selected','false');
+        selected = index;
+        if(selected>=0 && items[selected]){
+          items[selected].setAttribute('aria-selected','true');
+          // scroll into view
+          items[selected].scrollIntoView({block:'nearest'});
+        }
+      }
+
+      input.addEventListener('keydown', (e)=>{
+        if(list.hidden) return;
+        if(e.key === 'ArrowDown'){
+          e.preventDefault();
+          if(selected < items.length-1) selectItem(selected+1);
+          else selectItem(0);
+        } else if(e.key === 'ArrowUp'){
+          e.preventDefault();
+          if(selected > 0) selectItem(selected-1);
+          else selectItem(items.length-1);
+        } else if(e.key === 'Enter'){
+          if(selected>=0 && items[selected]){
+            e.preventDefault();
+            items[selected].click();
+          }
+        } else if(e.key === 'Escape'){
+          clearList();
+        }
+      });
+
+      input.addEventListener('input', (e)=>{
+        const q = (e.target.value||'').trim();
+        if(debounceTimer) clearTimeout(debounceTimer);
+        if(controller){ controller.abort(); controller = null; }
+        if(q.length < 2){ clearList(); return; }
+        debounceTimer = setTimeout(async ()=>{
+          try{
+            // Prefer local top-150 cache when available to provide instant suggestions
+            const localQ = q.toLowerCase();
+            try{
+              const top = JSON.parse(localStorage.getItem('agh_top150_anime')||'[]');
+              if(Array.isArray(top) && top.length){
+                const matched = top.filter(it=> (it.title||'').toLowerCase().includes(localQ)).slice(0,6).map(d=>({ title:d.title, synopsis:d.synopsis||'', url:d.url||'', mal_id:d.mal_id, images: { jpg: { image_url: d.image } } }));
+                if(matched.length){ renderResults(matched); return; }
+              }
+            }catch(e){ /* ignore local parse errors */ }
+
+            controller = new AbortController();
+            const res = await fetch('https://api.jikan.moe/v4/anime?q='+encodeURIComponent(q)+'&limit=6', {signal: controller.signal});
+            if(!res.ok) throw new Error('Jikan error');
+            const json = await res.json();
+            const results = (json.data || []).map(d=>({
+              title: d.title,
+              synopsis: d.synopsis,
+              url: d.url,
+              mal_id: d.mal_id,
+              images: d.images
+            }));
+            renderResults(results);
+          }catch(err){
+            // ignore aborts, hide list on errors
+            if(err.name !== 'AbortError') clearList();
+          }
+        }, 300);
+      });
+
+      // close when clicking outside
+      document.addEventListener('click', (e)=>{
+        if(!document.querySelector('.autocomplete')?.contains(e.target)) clearList();
+      });
+    })();
+  </script>
+    <script>
+      // header following count updater (shared)
+      (function(){
+        function updateFollowingCount(){
+          try{
+            const u = JSON.parse(localStorage.getItem('agh_user')||'null');
+            if(!u){
+              document.querySelectorAll('#following-count').forEach(el=>el.textContent = 0);
+              document.querySelectorAll('#following-link').forEach(el=>el.style.display = 'none');
+              return;
+            }
+            const id = u.provider+':'+(u.name||u.provider);
+            const follows = JSON.parse(localStorage.getItem('agh_follows_'+id)||'[]');
+            document.querySelectorAll('#following-count').forEach(el=>el.textContent = follows.length);
+            document.querySelectorAll('#following-link').forEach(el=>el.style.display = 'inline-flex');
+          }catch(e){}
+        }
+        updateFollowingCount();
+        window.addEventListener('storage', updateFollowingCount);
+      })();
+    </script>
+    <script src="assets/notify.js"></script>
+</body>
+</html>       
